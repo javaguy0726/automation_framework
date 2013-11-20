@@ -13,6 +13,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jbehave.core.version>4.0-beta-3</jbehave.core.version>
+		<jbehave.web.version>3.6-beta-1</jbehave.web.version>
 	</properties>
 
 	<dependencies>
@@ -33,6 +34,21 @@
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jbehave.web</groupId>
+			<artifactId>jbehave-web-selenium</artifactId>
+			<version>${jbehave.web.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.jbehave</groupId>
+					<artifactId>jbehave-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.seleniumhq.selenium</groupId>
+					<artifactId>selenium-java</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 </project>
