@@ -331,7 +331,7 @@
 								<phase>integration-test</phase>
 								<configuration>
 									<includes>
-										<include>${stories}</include>
+										<include>**/*.java</include>
 									</includes>
 									<excludes />
 								</configuration>
