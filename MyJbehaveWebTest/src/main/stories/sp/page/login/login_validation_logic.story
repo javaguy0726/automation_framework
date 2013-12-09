@@ -25,11 +25,17 @@ Then message "User account not found." should be displayed
 Scenario:  User login with incorrect account
 Given user get to the Login page
 And user input the incorrect username "quwei@beyondsoft.com:" and password "T3stingSMS321:"
-When user click login button
+When user click submit button
 Then message "Invalid username or password." should be displayed
 
 Scenario:  User login with nothing account info
 Given user get to the Login page
 And user input the incorrect username "quwei@beyondsoft.com:" and password "T3stingSMS321:"
-When user click login button
+When user click submit button
 Then message "Invalid username or password." should be displayed
+
+Scenario:  User login successfully
+Given user get to the Login page
+And user input the incorrect username "quwei@beyondsoft.com" and password "T3stingSMS321"
+When user click submit button
+Then user should get to the Home page
