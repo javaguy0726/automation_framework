@@ -1,6 +1,8 @@
 package org.jbehave.webdriver.sp.pages;
 
 import org.jbehave.web.selenium.WebDriverProvider;
+import org.jbehave.webdriver.sp.pages.home.SpHomePage;
+import org.jbehave.webdriver.sp.pages.login.SpLoginPage;
 
 public class SpPageFactory {
 
@@ -10,4 +12,11 @@ public class SpPageFactory {
 		this.webDriverProvider = webDriverProvider;
 	}
 	
+	public SpLoginPage newSpLogin(){
+		return new SpLoginPage(webDriverProvider);
+	}
+	
+	public SpHomePage newSpHome(){
+		return new SpHomePage(webDriverProvider);
+	}
 }
