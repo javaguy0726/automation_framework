@@ -53,5 +53,7 @@ public class LoginValidationLogic {
 	public void homepageShouldDisplay(){
 		assertThat(spHomePage.getTitle(), equalTo(""));
 	}
+	
+	
 
 }
