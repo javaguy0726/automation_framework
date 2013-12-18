@@ -1,4 +1,4 @@
-package org.jbehave.webdriver.sp.steps.login;
+package org.jbehave.webdriver.steps;
 
 import org.jbehave.core.annotations.Aliases;
 import org.jbehave.core.annotations.Given;

@@ -1,21 +1,25 @@
-package org.jbehave.webdriver.sp.stories.login;
+package org.jbehave.webdriver.stories;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Properties;
 
+import org.jbehave.core.Embeddable;
 import org.jbehave.core.InjectableEmbedder;
 import org.jbehave.core.annotations.Configure;
 import org.jbehave.core.annotations.UsingEmbedder;
 import org.jbehave.core.annotations.UsingSteps;
 import org.jbehave.core.annotations.spring.UsingSpring;
 import org.jbehave.core.configuration.Configuration;
+import org.jbehave.core.configuration.Keywords;
 import org.jbehave.core.embedder.Embedder;
 import org.jbehave.core.embedder.StoryControls;
+import org.jbehave.core.embedder.executors.SameThreadExecutors;
 import org.jbehave.core.failures.FailingUponPendingStep;
 import org.jbehave.core.i18n.LocalizedKeywords;
 import org.jbehave.core.io.CodeLocations;
 import org.jbehave.core.io.LoadFromClasspath;
+import org.jbehave.core.io.ResourceLoader;
 import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.io.UnderscoredCamelCaseResolver;
 import org.jbehave.core.junit.spring.SpringAnnotatedEmbedderRunner;
@@ -30,10 +34,13 @@ import org.jbehave.core.steps.ParameterConverters;
 import org.jbehave.core.steps.ParameterConverters.DateConverter;
 import org.jbehave.web.selenium.ContextView;
 import org.jbehave.web.selenium.LocalFrameContextView;
+import org.jbehave.web.selenium.PerScenarioWebDriverSteps;
+import org.jbehave.web.selenium.PerStoriesWebDriverSteps;
 import org.jbehave.web.selenium.SeleniumConfiguration;
 import org.jbehave.web.selenium.SeleniumContext;
 import org.jbehave.web.selenium.SeleniumContextOutput;
 import org.jbehave.web.selenium.SeleniumStepMonitor;
+import org.jbehave.web.selenium.WebDriverSteps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -42,45 +49,48 @@ import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 import static org.jbehave.core.reporters.Format.CONSOLE;
 import static org.jbehave.core.reporters.Format.XML;
 import static org.jbehave.web.selenium.WebDriverHtmlOutput.WEB_DRIVER_HTML;
-import static org.jbehave.webdriver.sp.stories.login.SmsBaseStories.MyStoryControls;
-import static org.jbehave.webdriver.sp.stories.login.SmsBaseStories.MyStoryLoader;
-import static org.jbehave.webdriver.sp.stories.login.SmsBaseStories.MyStoryParser;
-import static org.jbehave.webdriver.sp.stories.login.SmsBaseStories.MyStoryReportBuilder;
-import static org.jbehave.webdriver.sp.stories.login.SmsBaseStories.MyDateConverter;
-import static org.jbehave.webdriver.sp.stories.login.SmsBaseStories.MyPatternParser;
-import static org.jbehave.webdriver.sp.stories.login.SmsBaseStories.MyStepMonitor;
+import static org.jbehave.webdriver.stories.BaseStories.MyDateConverter;
+import static org.jbehave.webdriver.stories.BaseStories.MyPatternParser;
+import static org.jbehave.webdriver.stories.BaseStories.MyStepMonitor;
+import static org.jbehave.webdriver.stories.BaseStories.MyStoryControls;
+import static org.jbehave.webdriver.stories.BaseStories.MyStoryLoader;
+import static org.jbehave.webdriver.stories.BaseStories.MyStoryParser;
+import static org.jbehave.webdriver.stories.BaseStories.MyStoryReportBuilder;
 
 
 @RunWith(SpringAnnotatedEmbedderRunner.class)
-@Configure(using = SeleniumConfiguration.class, stepMonitor = MyStepMonitor.class,stepPatternParser= MyPatternParser.class, parameterConverters = {MyDateConverter.class}, storyReporterBuilder = MyStoryReportBuilder.class,  storyParser=MyStoryParser.class, pendingStepStrategy = FailingUponPendingStep.class, storyControls = MyStoryControls.class, storyLoader = MyStoryLoader.class)
-@UsingEmbedder(embedder = Embedder.class, batch = false, verboseFailures = true, verboseFiltering = true, skip = false, generateViewAfterStories = true, ignoreFailureInStories = true, ignoreFailureInView = false, storyTimeoutInSecs = 60, threads = 1, metaFilters = "-skip")
+@Configure(using = SeleniumConfiguration.class, stepMonitor = MyStepMonitor.class, stepPatternParser = MyPatternParser.class, parameterConverters = { MyDateConverter.class }, storyReporterBuilder = MyStoryReportBuilder.class, storyParser = MyStoryParser.class, pendingStepStrategy = FailingUponPendingStep.class, storyControls = MyStoryControls.class, storyLoader = MyStoryLoader.class)
+@UsingEmbedder(embedder = Embedder.class, batch = false, verboseFailures = true, verboseFiltering = true, skip = false, generateViewAfterStories = true, ignoreFailureInStories = true, ignoreFailureInView = false, storyTimeoutInSecs = 600, threads = 1, metaFilters = "-skip")
 @UsingSteps(instances = {})
-@UsingSpring(resources = {})
-public class SmsBaseStories extends InjectableEmbedder {
+@UsingSpring(resources = {"env_config.xml"})
+public class BaseStories extends InjectableEmbedder {
 
-	protected static SeleniumContext seleniumContext= new SeleniumContext();
+	protected static Properties properties = new Properties();
+	protected static SeleniumContext seleniumContext = new SeleniumContext();
 	protected static ContextView contextView = new LocalFrameContextView().sized(640, 120);
 	protected static CrossReference crossReference  = new CrossReference().withJsonOnly(); 
-	protected static SeleniumStepMonitor seleniumStepMonitor = new SeleniumStepMonitor(contextView, seleniumContext,
-              crossReference.getStepMonitor()); 
-	protected static Format[] formats = new Format[] { new SeleniumContextOutput(seleniumContext), CONSOLE, WEB_DRIVER_HTML };
+	protected static Format[] formats = new Format[] { new SeleniumContextOutput(seleniumContext), CONSOLE,XML, WEB_DRIVER_HTML };
+	protected static Keywords keyword = new LocalizedKeywords();
+	protected static ResourceLoader  resourceLoader = new LoadFromClasspath(BaseStories.class);
+	protected static ParameterConverters parameterConverters = new ParameterConverters();
+	protected static TableTransformers  tableTransformers = new TableTransformers();
+	protected static ExamplesTableFactory  examplesTableFactory = new ExamplesTableFactory(keyword,resourceLoader,parameterConverters,tableTransformers);
 	
-	
-	public SmsBaseStories() {
-		
+	public BaseStories() {
+		Configuration configuration = injectedEmbedder().configuration();
+		if (configuration instanceof SeleniumConfiguration) {
+            SeleniumConfiguration seleniumConfiguration = (SeleniumConfiguration) configuration;
+            seleniumConfiguration.useSeleniumContext(seleniumContext);
+        }
 	}
 
 	@Test
 	public void run() throws Throwable {
-		Configuration configuration = injectedEmbedder().configuration();
-		if (configuration instanceof SeleniumConfiguration) {
-			SeleniumConfiguration seleniumConfiguration = (SeleniumConfiguration) configuration;
-			seleniumConfiguration.useSeleniumContext(seleniumContext);
-		}
-		injectedEmbedder().runStoriesAsPaths(storyPaths());
+		 injectedEmbedder().runStoriesAsPaths(storyPaths());
 		
 	}
 	
+	//find the story text
 	protected List<String> storyPaths() {
         return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()).getFile(),
                 asList("**/*.story"), null);
@@ -93,8 +103,7 @@ public class SmsBaseStories extends InjectableEmbedder {
 			doSkipScenariosAfterFailure(true);
 			doSkipBeforeAndAfterScenarioStepsIfGivenStory(true);
 			doResetStateBeforeScenario(false);
-			
-			
+
 			// useScenarioMetaPrefix(scenarioMetaPrefix);
 			// useStoryMetaPrefix(storyMetaPrefix);
 			// scenarioMetaPrefix();
@@ -109,14 +118,13 @@ public class SmsBaseStories extends InjectableEmbedder {
 	
 	public static class MyStoryLoader extends LoadFromClasspath{
 		public MyStoryLoader(){
-			super(SmsBaseStories.class.getClassLoader());
+			super(BaseStories.class.getClassLoader());
 		}
 	}
 	
 	public static class MyStoryParser extends RegexStoryParser{
 		public MyStoryParser(){
-			super(new ExamplesTableFactory(new LocalizedKeywords(),new LoadFromClasspath(SmsBaseStories.class),
-					new ParameterConverters(),new TableTransformers()));  
+			super(examplesTableFactory);  
 		}
 	}
 	
@@ -128,12 +136,13 @@ public class SmsBaseStories extends InjectableEmbedder {
 	
 	//configure the reporter builder class
 	public static class MyStoryReportBuilder extends StoryReporterBuilder {
-		private Properties  properties = new Properties();
+		
 		public MyStoryReportBuilder(){
-			this.withCodeLocation(CodeLocations.codeLocationFromClass(SmsBaseStories.class))
-			.withViewResources((Properties)properties.put("decorateNonHtml","false"))
+			properties.put("decorateNonHtml","false");
+			this.withCodeLocation(CodeLocations.codeLocationFromClass(BaseStories.class))
+			.withViewResources(properties)
 			.withDefaultFormats()
-			.withFormats(CONSOLE, XML, WEB_DRIVER_HTML)
+			.withFormats(formats)
 			.withFailureTrace(true)
 			.withFailureTraceCompression(true)
 			.withCrossReference(crossReference)
@@ -158,7 +167,6 @@ public class SmsBaseStories extends InjectableEmbedder {
 	public static class MyStepMonitor extends SeleniumStepMonitor{
 		public MyStepMonitor() {
 			super(contextView, seleniumContext, crossReference.getStepMonitor());
-			
 		}
 	}
 	
