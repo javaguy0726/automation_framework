@@ -10,7 +10,7 @@ import org.jbehave.webdriver.stories.BaseStories;
 import org.junit.runner.RunWith;
 
 @UsingSteps(instances = {})
-@UsingSpring(resources = { "sp/pages/login.xml" })
+//@UsingSpring(resources = { "sp/pages/login.xml" })
 public class LoginValidationLogic extends BaseStories {
 
 }
