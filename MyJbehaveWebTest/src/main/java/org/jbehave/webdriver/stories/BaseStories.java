@@ -59,10 +59,28 @@ import static org.jbehave.webdriver.stories.BaseStories.MyStoryReportBuilder;
 
 
 @RunWith(SpringAnnotatedEmbedderRunner.class)
-@Configure(using = SeleniumConfiguration.class, stepMonitor = MyStepMonitor.class, stepPatternParser = MyPatternParser.class, parameterConverters = { MyDateConverter.class }, storyReporterBuilder = MyStoryReportBuilder.class, storyParser = MyStoryParser.class, pendingStepStrategy = FailingUponPendingStep.class, storyControls = MyStoryControls.class, storyLoader = MyStoryLoader.class)
-@UsingEmbedder(embedder = Embedder.class, batch = false, verboseFailures = true, verboseFiltering = true, skip = false, generateViewAfterStories = true, ignoreFailureInStories = true, ignoreFailureInView = false, storyTimeoutInSecs = 600, threads = 1, metaFilters = "-skip")
+@Configure(using = SeleniumConfiguration.class, 
+					stepMonitor = MyStepMonitor.class, 
+					stepPatternParser = MyPatternParser.class, 
+					parameterConverters = { MyDateConverter.class }, 
+					storyReporterBuilder = MyStoryReportBuilder.class, 
+					storyParser = MyStoryParser.class, 
+					pendingStepStrategy = FailingUponPendingStep.class, 
+					storyControls = MyStoryControls.class, 
+					storyLoader = MyStoryLoader.class)
+@UsingEmbedder(embedder = Embedder.class, 
+							batch = false, 
+							verboseFailures = true, 
+							verboseFiltering = true, 
+							skip = false, 
+							generateViewAfterStories = true, 
+							ignoreFailureInStories = true, 
+							ignoreFailureInView = true, 
+							storyTimeoutInSecs = 300, 
+							threads = 1, 
+							metaFilters = "-skip")
 @UsingSteps(instances = {})
-@UsingSpring(resources = {"env_config.xml"})
+@UsingSpring(resources = {})
 public class BaseStories extends InjectableEmbedder {
 
 	protected static Properties properties = new Properties();

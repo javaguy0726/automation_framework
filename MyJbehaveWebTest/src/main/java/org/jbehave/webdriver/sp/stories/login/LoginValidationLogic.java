@@ -9,12 +9,8 @@ import org.jbehave.core.junit.spring.SpringAnnotatedEmbedderRunner;
 import org.jbehave.webdriver.stories.BaseStories;
 import org.junit.runner.RunWith;
 
-@RunWith(SpringAnnotatedEmbedderRunner.class)
-@Configure()
-@UsingEmbedder(storyTimeoutInSecs = 600, threads = 1, metaFilters = "-skip")
 @UsingSteps(instances = {})
-@UsingSpring(resources = {"env_config.xml"})
-public class LoginValidationLogic extends BaseStories{
+@UsingSpring(resources = { "sp/pages/login.xml" })
+public class LoginValidationLogic extends BaseStories {
 
-	
 }

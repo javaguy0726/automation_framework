@@ -10,13 +10,4 @@
 		<constructor-arg ref="webdriverProvider"></constructor-arg>
 	</bean>
 
-	<bean id="pageFactory" class="org.jbehave.webdriver.sp.pages.SpPageFactory">
-		<constructor-arg ref="webdriverProvider" />
-	</bean>
-
-	<bean id="loginValidationLogicSteps"
-		class="org.jbehave.webdriver.steps.LoginValidationLogicSteps">
-		<constructor-arg ref="pageFactory" />
-	</bean>
-
 </beans>
