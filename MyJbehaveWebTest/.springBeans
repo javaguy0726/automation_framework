@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/resources/env_config.xml</config>
 		<config>src/main/resources/sp/pages/login.xml</config>
+		<config>src/main/resources/context_configs.xml</config>
 	</configs>
 	<configSets>
 	</configSets>
