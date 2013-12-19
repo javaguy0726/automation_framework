@@ -80,7 +80,7 @@ import static org.jbehave.webdriver.stories.BaseStories.MyStoryReportBuilder;
 							threads = 1, 
 							metaFilters = "-skip")
 @UsingSteps(instances = {})
-@UsingSpring(resources = {})
+@UsingSpring(resources = {"context_configs.xml"})
 public class BaseStories extends InjectableEmbedder {
 
 	protected static Properties properties = new Properties();
