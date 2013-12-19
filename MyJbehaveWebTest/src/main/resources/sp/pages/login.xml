@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="spPageFactory" class="org.jbehave.webdriver.sp.pages.SpPageFactory">
+		<constructor-arg ref="webdriverProvider" />
+	</bean>
+	
+	<bean id="loginValidationLogicSteps" class="org.jbehave.webdriver.steps.LoginValidationLogicSteps">
+		<constructor-arg ref="spPageFactory" />
+	</bean>
+
+	<bean id='spLoginPage' class="org.jbehave.webdriver.sp.pages.login.SpLoginPage">
+		<constructor-arg ref="webdriverProvider" />
+		<property name="sp_loginpage_link_forgot_password" value=""></property>
+	</bean>
+
+
+</beans>

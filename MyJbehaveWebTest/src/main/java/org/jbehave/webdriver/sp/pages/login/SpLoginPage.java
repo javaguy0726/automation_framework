@@ -52,4 +52,31 @@ public class SpLoginPage extends FluentWebDriverPage{
 		return this;
 	}
 
+	
+	
+	// setters here
+	public void setSp_loginpage_link_forgot_password(
+			By sp_loginpage_link_forgot_password) {
+		this.sp_loginpage_link_forgot_password = sp_loginpage_link_forgot_password;
+	}
+
+	public void setSp_loginpage_span_response_massage(
+			By sp_loginpage_span_response_massage) {
+		this.sp_loginpage_span_response_massage = sp_loginpage_span_response_massage;
+	}
+
+	public void setSp_loginpage_input_username(By sp_loginpage_input_username) {
+		this.sp_loginpage_input_username = sp_loginpage_input_username;
+	}
+
+	public void setSp_loginpage_input_password(By sp_loginpage_input_password) {
+		this.sp_loginpage_input_password = sp_loginpage_input_password;
+	}
+
+	public void setSp_loginpage_button_submit(By sp_loginpage_button_submit) {
+		this.sp_loginpage_button_submit = sp_loginpage_button_submit;
+	}
+
+	
+	
 }

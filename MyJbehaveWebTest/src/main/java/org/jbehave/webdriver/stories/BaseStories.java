@@ -69,18 +69,18 @@ import static org.jbehave.webdriver.stories.BaseStories.MyStoryReportBuilder;
 					storyControls = MyStoryControls.class, 
 					storyLoader = MyStoryLoader.class)
 @UsingEmbedder(embedder = Embedder.class, 
-					batch = false, 
-					verboseFailures = true, 
-					verboseFiltering = true, 
-					skip = false, 
-					generateViewAfterStories = true, 
-					ignoreFailureInStories = true, 
-					ignoreFailureInView = false, 
-					storyTimeoutInSecs = 120, 
-					threads = 1,
-					metaFilters = "-skip")
+							batch = false, 
+							verboseFailures = true, 
+							verboseFiltering = true, 
+							skip = false, 
+							generateViewAfterStories = true, 
+							ignoreFailureInStories = true, 
+							ignoreFailureInView = true, 
+							storyTimeoutInSecs = 300, 
+							threads = 1, 
+							metaFilters = "-skip")
 @UsingSteps(instances = {})
-@UsingSpring(resources = {"configuration/env_config.xml"})
+@UsingSpring(resources = {})
 public class BaseStories extends InjectableEmbedder {
 
 	protected static Properties properties = new Properties();
