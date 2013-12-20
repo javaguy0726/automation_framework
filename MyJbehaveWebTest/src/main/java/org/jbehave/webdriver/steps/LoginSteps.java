@@ -12,13 +12,13 @@ import org.openqa.selenium.By;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class LoginValidationLogicSteps {
+public class LoginSteps {
 
 	private SpLoginPage spLoginPage;
 	private SpHomePage spHomePage;
 	
 	
-	public LoginValidationLogicSteps(SpPageFactory factory){
+	public LoginSteps(SpPageFactory factory){
 		this.spLoginPage = factory.newSpLogin();
 		this.spHomePage = factory.newSpHome();
 	}

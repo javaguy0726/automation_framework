@@ -7,7 +7,7 @@
 		<constructor-arg ref="webdriverProvider" />
 	</bean>
 	
-	<bean id="loginValidationLogicSteps" class="org.jbehave.webdriver.steps.LoginValidationLogicSteps">
+	<bean id="loginSteps" class="org.jbehave.webdriver.steps.LoginSteps">
 		<constructor-arg ref="spPageFactory" />
 	</bean>
 
