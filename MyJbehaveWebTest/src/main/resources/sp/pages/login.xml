@@ -13,7 +13,8 @@
 
 	<bean id='spLoginPage' class="org.jbehave.webdriver.sp.pages.login.SpLoginPage">
 		<constructor-arg ref="webdriverProvider" />
+		<property name="sp_loginpage_link_forgot_password" value="T(org.openqa.selenium.By).cssSelector('#btnReset')">
+		</property>
 	</bean>
-
 
 </beans>

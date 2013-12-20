@@ -2,9 +2,7 @@ package org.jbehave.webdriver.sp.pages.login;
 
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
-import org.jbehave.webdriver.sp.pages.home.SpHomePage;
 import org.openqa.selenium.By;
-import org.seleniumhq.selenium.fluent.TestableString;
 /**
  * 
  * @author Administrator
