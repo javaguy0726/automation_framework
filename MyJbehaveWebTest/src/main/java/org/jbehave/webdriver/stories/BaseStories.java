@@ -177,7 +177,7 @@ public class BaseStories extends InjectableEmbedder {
 	
 	public static class MyPatternParser extends RegexPrefixCapturingPatternParser {
         public MyPatternParser() {
-            super("%");
+            super("$");
             
         }
     }

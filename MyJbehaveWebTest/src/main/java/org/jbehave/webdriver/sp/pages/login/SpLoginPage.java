@@ -25,7 +25,6 @@ public class SpLoginPage extends FluentWebDriverPage{
 	
 	
 	
-	
 	// actions for login page
 	public SpLoginPage open(){
 		get("http://test.mysplogon.com/SinglePoint/Login.aspx");

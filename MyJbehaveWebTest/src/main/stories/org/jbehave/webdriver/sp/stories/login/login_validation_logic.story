@@ -4,6 +4,8 @@ Narrative:
 In order to know how the SP(http://test.mysplogon.com/SinglePoint/) validate user login
 As a test user
 I want to login with different conditions 
+Meta:
+login_val_logic
 					 
 Scenario:  User click "Forgot Password" link directly to see what message shows
 Given user get to the Login page

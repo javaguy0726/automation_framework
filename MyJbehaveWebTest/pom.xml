@@ -86,6 +86,12 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<groupId>org.jbehave.web</groupId>
+			<artifactId>jbehave-web-selenium</artifactId>
+			<version>${jbehave.web.version}</version>
+			<classifier>sources</classifier>
+		</dependency>
+		<dependency>
 			<groupId>org.seleniumhq.selenium.fluent</groupId>
 			<artifactId>fluent-selenium</artifactId>
 			<version>${fluent.selenium.version}</version>
@@ -128,6 +134,7 @@
 			<artifactId>jbehave-spring</artifactId>
 			<version>${jbehave.core.version}</version>
 		</dependency>
+		
 	</dependencies>
 
 	<build>

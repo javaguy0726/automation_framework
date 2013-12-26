@@ -30,9 +30,9 @@ public class LoginSteps {
 		this.spLoginPage = spLoginPage.open();
 	}
 	
-	@Given("user input the correct username $username and password $password")
-	@Aliases(values={"user input the incorrect username $username and password $password"})
-	public void userInputCorrectInfo(String username, String password){
+	@Given("user input the correct username \"$username\" and password \"$password\"")
+	@Aliases(values={"user input the incorrect username \"$username\" and password \"$password\""})
+	public void userInputCorrectInfo(@Named("username") String username, @Named("password") String password){
 		this.spLoginPage=spLoginPage.inputUserInfo(username, password);
 	}
 	
@@ -46,10 +46,8 @@ public class LoginSteps {
 		this.spLoginPage = spLoginPage.clickSubmitButton();
 	}
 	
-	@Then("message $message should be displayed")
-	@Pending
+	@Then("message \"$message\" should be displayed")
 	public void messageShouldDisplay(@Named("message") String message){
-		System.out.println(message+ "  "+ spLoginPage.getResponseMessage());
 		assertThat(spLoginPage.getResponseMessage(), equalTo(message));
 	}
 	
