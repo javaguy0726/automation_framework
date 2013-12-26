@@ -1,5 +1,7 @@
 package org.jbehave.webdriver.sp.pages.login;
 
+import java.util.List;
+
 import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.By;
@@ -15,11 +17,11 @@ public class SpLoginPage extends FluentWebDriverPage{
 	}
 	
 	// add locators here
-	private By sp_loginpage_link_forgot_password;
-	private By sp_loginpage_span_response_massage;
-	private By sp_loginpage_input_username;
-	private By sp_loginpage_input_password;
-	private By sp_loginpage_button_submit;
+	public static By sp_loginpage_link_forgot_password;
+	public static By sp_loginpage_span_response_massage;
+	public static By sp_loginpage_input_username;
+	public static By sp_loginpage_input_password;
+	public static By sp_loginpage_button_submit;
 	
 	
 	

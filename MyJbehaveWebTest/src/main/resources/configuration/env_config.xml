@@ -10,7 +10,4 @@
 		<constructor-arg ref="webdriverProvider"></constructor-arg>
 	</bean>
 
-	<bean id="webDirverBy" class="org.openqa.selenium.By" abstract="true">
-	</bean>
-	
 </beans>
