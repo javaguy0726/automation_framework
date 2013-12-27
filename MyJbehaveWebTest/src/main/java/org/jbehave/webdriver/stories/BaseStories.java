@@ -120,7 +120,8 @@ public class BaseStories extends InjectableEmbedder {
 			doDryRun(false);
 			doSkipScenariosAfterFailure(true);
 			doSkipBeforeAndAfterScenarioStepsIfGivenStory(true);
-			doResetStateBeforeScenario(false);
+			doResetStateBeforeScenario(true);
+			doResetStateBeforeStory(true);
 
 			// useScenarioMetaPrefix(scenarioMetaPrefix);
 			// useStoryMetaPrefix(storyMetaPrefix);
@@ -130,7 +131,6 @@ public class BaseStories extends InjectableEmbedder {
 			// storyMetaPrefix();
 			// resetStateBeforeScenario();
 			// resetStateBeforeStory();
-			// doResetStateBeforeStory(false);
 		}
 	}
 	

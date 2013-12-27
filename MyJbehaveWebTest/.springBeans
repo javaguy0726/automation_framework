@@ -7,8 +7,8 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/resources/sp/pages/login.xml</config>
 		<config>src/main/resources/context_configs.xml</config>
+		<config>src/main/resources/pages/sp/login.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

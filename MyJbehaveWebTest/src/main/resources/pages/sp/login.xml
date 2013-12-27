@@ -6,11 +6,11 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/util 
 	http://www.springframework.org/schema/util/spring-util-2.0.xsd">
-
+	
 	<bean id="spPageFactory" class="org.jbehave.webdriver.sp.pages.SpPageFactory">
 		<constructor-arg ref="webdriverProvider" />
 	</bean>
-	
+
 	<bean id="loginSteps" class="org.jbehave.webdriver.steps.LoginSteps">
 		<constructor-arg ref="spPageFactory" />
 	</bean>
@@ -23,5 +23,6 @@
 		<property name="sp_loginpage_input_password" value="#{T(org.openqa.selenium.By).cssSelector('#txtPwd')}"></property>
 		<property name="sp_loginpage_button_submit" value="#{T(org.openqa.selenium.By).cssSelector('#btnLogin')}"></property>
 	</bean>
-
+	
+	
 </beans>

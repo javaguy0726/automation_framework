@@ -5,9 +5,12 @@
 
 	<bean id="webdriverProvider" class="org.jbehave.web.selenium.FirefoxWebDriverProvider">
 	</bean>
-	
+	<!--  
 	<bean id="perSteps" class="org.jbehave.web.selenium.PerScenarioWebDriverSteps">
 		<constructor-arg ref="webdriverProvider"></constructor-arg>
+	</bean>
+	-->
+	<bean id="beforeAfterSteps" class="org.jbehave.webdriver.steps.BeforeAfterSteps">
 	</bean>
 	
 	
