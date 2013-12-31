@@ -30,6 +30,7 @@ import org.jbehave.core.parsers.RegexStoryParser;
 import org.jbehave.core.reporters.CrossReference;
 import org.jbehave.core.reporters.Format;
 import org.jbehave.core.reporters.StoryReporterBuilder;
+import org.jbehave.core.steps.ParameterControls;
 import org.jbehave.core.steps.ParameterConverters;
 import org.jbehave.core.steps.ParameterConverters.DateConverter;
 import org.jbehave.web.selenium.ContextView;
@@ -56,6 +57,7 @@ import static org.jbehave.webdriver.stories.BaseStories.MyStoryControls;
 import static org.jbehave.webdriver.stories.BaseStories.MyStoryLoader;
 import static org.jbehave.webdriver.stories.BaseStories.MyStoryParser;
 import static org.jbehave.webdriver.stories.BaseStories.MyStoryReportBuilder;
+import static org.jbehave.webdriver.stories.BaseStories.MyParameterControls;
 
 
 @RunWith(SpringAnnotatedEmbedderRunner.class)
@@ -67,7 +69,9 @@ import static org.jbehave.webdriver.stories.BaseStories.MyStoryReportBuilder;
 					storyParser = MyStoryParser.class, 
 					pendingStepStrategy = FailingUponPendingStep.class, 
 					storyControls = MyStoryControls.class, 
-					storyLoader = MyStoryLoader.class)
+					storyLoader = MyStoryLoader.class,
+					parameterControls=MyParameterControls.class
+					)
 @UsingEmbedder(embedder = Embedder.class, 
 							batch = false, 
 							verboseFailures = true, 
@@ -185,6 +189,12 @@ public class BaseStories extends InjectableEmbedder {
 	public static class MyStepMonitor extends SeleniumStepMonitor{
 		public MyStepMonitor() {
 			super(contextView, seleniumContext, crossReference.getStepMonitor());
+		}
+	}
+	
+	public static class MyParameterControls extends ParameterControls{
+		public MyParameterControls() {
+			super("<",">",false);
 		}
 	}
 	

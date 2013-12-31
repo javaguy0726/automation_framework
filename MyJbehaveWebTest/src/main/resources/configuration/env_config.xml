@@ -10,8 +10,9 @@
 		<constructor-arg ref="webdriverProvider"></constructor-arg>
 	</bean>
 	-->
+	<!--  -->
 	<bean id="beforeAfterSteps" class="org.jbehave.webdriver.steps.BeforeAfterSteps">
+		<constructor-arg ref="webdriverProvider"></constructor-arg>
 	</bean>
-	
 	
 </beans>

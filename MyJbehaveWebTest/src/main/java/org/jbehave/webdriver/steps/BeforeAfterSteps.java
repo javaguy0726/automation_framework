@@ -9,9 +9,15 @@ import org.jbehave.core.annotations.BeforeStory;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.ScenarioType;
 import org.jbehave.core.annotations.AfterScenario.Outcome;
+import org.jbehave.web.selenium.WebDriverProvider;
+import org.jbehave.web.selenium.WebDriverSteps;
 
-public class BeforeAfterSteps {
+public class BeforeAfterSteps extends WebDriverSteps{
 
+	public BeforeAfterSteps(WebDriverProvider driverProvider) {
+		super(driverProvider);
+	}
+	/*
 	@BeforeStories
 	public void beforeStories() {
 		System.out.println("+++++ Before Stories +++++");
@@ -31,33 +37,16 @@ public class BeforeAfterSteps {
 	public void afterStory() {
 		System.out.println("+++++ After Story +++++");
 	}
-
+	*/
 	@BeforeScenario
     public void beforeScenario() {
 		System.out.println("+++++ Before Scenario +++++");
+		driverProvider.initialize();
     }
-
-	@AfterScenario
-	public void afterScenario() {
-		System.out.println("+++++ After Scenario +++++");
-	}
     
-	@BeforeScenario(uponType = ScenarioType.EXAMPLE)
-    public void beforeExampleScenario() {
-    	System.out.println("+++++ Before Example Scenario +++++");
-    }
-
-    
-    @AfterScenario(uponType= ScenarioType.EXAMPLE)
-    public void afterExampleScenario() {
-    	System.out.println("+++++ After Example Scenario +++++");
-    }
-
-    @AfterScenario(uponOutcome = Outcome.FAILURE)
-    public void afterFailedScenario() {
-    }
-
-    @AfterScenario(uponOutcome = Outcome.SUCCESS)
-    public void afterSuccessfulScenario() {
+    @AfterScenario(uponOutcome = Outcome.ANY)
+    public void afterAnyScenario() {
+    	System.out.println("+++++ After Any Scenario +++++");
+    	driverProvider.end();
     }
 }
