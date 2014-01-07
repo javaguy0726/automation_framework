@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context  
+    http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	>
+	
+	<context:property-placeholder location="configuration/sysprops.properties"/>
 
-	<bean id="webdriverProvider" class="org.jbehave.web.selenium.FirefoxWebDriverProvider">
+	
+
+
+  
+	<bean id="webdriverProvider" class="org.jbehave.web.selenium.PropertyWebDriverProvider">
+	
 	</bean>
-	<!--  
+	<!-- --> 
 	<bean id="perSteps" class="org.jbehave.web.selenium.PerScenarioWebDriverSteps">
 		<constructor-arg ref="webdriverProvider"></constructor-arg>
 	</bean>
-	-->
-	<!--  -->
+	
+	<!--  
 	<bean id="beforeAfterSteps" class="org.jbehave.webdriver.steps.BeforeAfterSteps">
 		<constructor-arg ref="webdriverProvider"></constructor-arg>
 	</bean>
-	
+	-->
 </beans>
