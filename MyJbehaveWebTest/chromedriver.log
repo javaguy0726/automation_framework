@@ -1,0 +1,47 @@
+[0.001][INFO]:      ChromeDriver 23.0.1240.0 F:\chromedriver.exe
+[0.349][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "chrome.switches": [  ],
+   "chromeOptions": {
+      "args": [  ],
+      "extensions": [  ]
+   },
+   "platform": "ANY",
+   "version": ""
+}
+
+[0.351][INFO]:      Launching chrome: "C:\Users\Administrator\AppData\Local\Google\Chrome\Application\chrome.exe" --enable-logging --log-level=1 --disable-hang-monitor --disable-prompt-on-repost --dom-automation --full-memory-crash-report --no-default-browser-check --no-first-run --disable-background-networking --disable-sync --disable-translate --disable-web-resources --safebrowsing-disable-auto-update --safebrowsing-disable-download-protection --disable-client-side-phishing-detection --disable-component-update --disable-default-apps --ignore-certificate-errors about:blank
+[1.225][INFO]:      Connected to Chrome successfully. Version: 30.0.1599.69
+[1.232][FINE]:      Command received (/session/81d0e13da83949498299fdee0ab9075b)
+[1.232][FINE]:      Command finished (/session/81d0e13da83949498299fdee0ab9075b) with response {
+   "sessionId": "81d0e13da83949498299fdee0ab9075b",
+   "status": 0,
+   "value": {
+      "acceptSslCerts": false,
+      "applicationCacheEnabled": false,
+      "browserConnectionEnabled": false,
+      "browserName": "chrome",
+      "chrome.chromedriverVersion": "23.0.1240.0",
+      "chrome.nativeEvents": false,
+      "cssSelectorsEnabled": true,
+      "databaseEnabled": false,
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "locationContextEnabled": false,
+      "nativeEvents": true,
+      "platform": "windows",
+      "rotatable": false,
+      "takesScreenshot": true,
+      "version": "30.0.1599.69",
+      "webStorageEnabled": true
+   }
+}
+
+[1.237][FINE]:      Command received (/session/81d0e13da83949498299fdee0ab9075b/url) with params {
+   "url": "http://test.mysplogon.com/SinglePoint/Login.aspx"
+}
+
+[1.237][FINER]:     Waiting for all views to stop loading...
+[1.238][FINER]:     Done waiting for all views to stop loading
+[1.248][FINE]:      Command received (/session/81d0e13da83949498299fdee0ab9075b)
+[2.609][INFO]:      Chrome shutdown
