@@ -47,6 +47,6 @@ public class BeforeAfterSteps extends WebDriverSteps{
     @AfterScenario(uponOutcome = Outcome.ANY)
     public void afterAnyScenario() {
     	System.out.println("+++++ After Any Scenario +++++");
-    	driverProvider.end();
+    	 driverProvider.end();
     }
 }
