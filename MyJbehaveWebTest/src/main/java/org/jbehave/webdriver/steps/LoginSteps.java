@@ -27,7 +27,6 @@ public class LoginSteps {
 	
 	@Given("user get to the Login page")
 	public void userGetToLoginPage(){
-		System.out.println(System.getProperty("webdriver.chrome.driver")+"+++++++++++++++@@");
 		this.spLoginPage = spLoginPage.open();
 	}
 	
