@@ -125,7 +125,7 @@ public class BaseStories extends InjectableEmbedder {
 			doSkipScenariosAfterFailure(true);
 			doSkipBeforeAndAfterScenarioStepsIfGivenStory(true);
 			doResetStateBeforeScenario(true);
-			doResetStateBeforeStory(true);
+			doResetStateBeforeStory(false);
 
 			// useScenarioMetaPrefix(scenarioMetaPrefix);
 			// useStoryMetaPrefix(storyMetaPrefix);

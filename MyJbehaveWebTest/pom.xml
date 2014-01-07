@@ -13,7 +13,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jbehave.core.version>4.0-beta-3</jbehave.core.version>
-		<jbehave.web.version>3.6-beta-1</jbehave.web.version>
+		<jbehave.web.version>3.6-beta-2</jbehave.web.version>
 		<jbehave.site.version>3.1.1</jbehave.site.version>
 		<selenium.version>2.37.1</selenium.version>
 		<fluent.selenium.version>1.14.5</fluent.selenium.version>
