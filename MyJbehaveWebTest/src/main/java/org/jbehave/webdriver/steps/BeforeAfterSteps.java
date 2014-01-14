@@ -11,6 +11,7 @@ import org.jbehave.core.annotations.ScenarioType;
 import org.jbehave.core.annotations.AfterScenario.Outcome;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.jbehave.web.selenium.WebDriverSteps;
+import org.openqa.selenium.os.WindowsUtils;
 
 public class BeforeAfterSteps extends WebDriverSteps{
 
@@ -42,8 +43,9 @@ public class BeforeAfterSteps extends WebDriverSteps{
     public void beforeScenario() {
 		System.out.println("+++++ Before Scenario +++++");
 		driverProvider.initialize();
+		
     }
-    
+	
     @AfterScenario(uponOutcome = Outcome.ANY)
     public void afterAnyScenario() {
     	System.out.println("+++++ After Any Scenario +++++");

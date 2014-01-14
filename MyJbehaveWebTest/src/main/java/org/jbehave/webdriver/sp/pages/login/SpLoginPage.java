@@ -2,15 +2,15 @@ package org.jbehave.webdriver.sp.pages.login;
 
 import java.util.List;
 
-import org.jbehave.web.selenium.FluentWebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
+import org.jbehave.webdriver.sp.pages.SpAbstractPage;
 import org.openqa.selenium.By;
 /**
  * 
  * @author Administrator
  * This is the login page object. It includes the locators and actions.
  */
-public class SpLoginPage extends FluentWebDriverPage{
+public class SpLoginPage extends SpAbstractPage{
 
 	public SpLoginPage(WebDriverProvider webDriverProvider) {
 		super(webDriverProvider);
