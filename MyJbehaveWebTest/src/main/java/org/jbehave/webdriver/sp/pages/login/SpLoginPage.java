@@ -23,8 +23,6 @@ public class SpLoginPage extends SpAbstractPage{
 	public static By sp_loginpage_input_password;
 	public static By sp_loginpage_button_submit;
 	
-	
-	
 	// actions for login page
 	public SpLoginPage open(){
 		get("http://test.mysplogon.com/SinglePoint/Login.aspx");

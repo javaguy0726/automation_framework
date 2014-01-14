@@ -1,5 +1,7 @@
 package org.jbehave.webdriver.util;
 
-public class ExampleUtil {
+
+public class FluentSeleniumUtil{
+
 
 }

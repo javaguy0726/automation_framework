@@ -26,9 +26,12 @@
 		</property>
 	</bean>
 
-	<bean id="webdriverProvider" class="org.jbehave.web.selenium.PropertyWebDriverProvider">
+	<bean id="webdriverProvider" class="org.jbehave.web.selenium.PropertyWebDriverProvider"/>
 	
+	<bean id="spPageFactory" class="org.jbehave.webdriver.sp.pages.SpPageFactory">
+		<constructor-arg ref="webdriverProvider" />
 	</bean>
+		
 	<bean id="perSteps" class="org.jbehave.web.selenium.PerScenarioWebDriverSteps">
 		<constructor-arg ref="webdriverProvider"></constructor-arg>
 	</bean>
