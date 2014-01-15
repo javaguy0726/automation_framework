@@ -51,7 +51,9 @@ public class SpLoginPage extends SpAbstractPage{
 
 	
 	
-	// setters here
+	
+	
+	//properties setters here
 	public void setSp_loginpage_link_forgot_password(
 			By sp_loginpage_link_forgot_password) {
 		SpLoginPage.sp_loginpage_link_forgot_password = sp_loginpage_link_forgot_password;
