@@ -28,6 +28,14 @@
 
 	<bean id="webdriverProvider" class="org.jbehave.web.selenium.PropertyWebDriverProvider"/>
 	
+	<bean id="spAbstractPage" class="org.jbehave.webdriver.sp.pages.SpAbstractPage" abstract="true">
+		<constructor-arg ref="webdriverProvider"></constructor-arg>
+	</bean>
+	
+	<bean id="fluentSeleniumUtil" class="org.jbehave.webdriver.util.FluentSeleniumUtil">
+		<constructor-arg ref="webdriverProvider"></constructor-arg>
+	</bean>
+	
 	<bean id="spPageFactory" class="org.jbehave.webdriver.sp.pages.SpPageFactory">
 		<constructor-arg ref="webdriverProvider" />
 	</bean>

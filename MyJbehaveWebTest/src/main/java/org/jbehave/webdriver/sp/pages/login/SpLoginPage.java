@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 /**
  * 
  * @author Administrator
- * This is the login page object. It includes the locators and actions.
+ * This is the login page object. It provides the locators and actions methods.
  */
 public class SpLoginPage extends SpAbstractPage{
 
@@ -16,39 +16,46 @@ public class SpLoginPage extends SpAbstractPage{
 		super(webDriverProvider);
 	}
 	
-	// add locators here
+	/*Locators for sp login page*/
 	public static By sp_loginpage_link_forgot_password;
 	public static By sp_loginpage_span_response_massage;
 	public static By sp_loginpage_input_username;
 	public static By sp_loginpage_input_password;
 	public static By sp_loginpage_button_submit;
 	
-	// actions for login page
+	
+	/*Actions for login page*/
 	public SpLoginPage open(){
 		get("http://test.mysplogon.com/SinglePoint/Login.aspx");
 		return this;
 	}
 	
 	public SpLoginPage clickForgetPasswordLink(){
-		link(sp_loginpage_link_forgot_password).click();
+		findElement(sp_loginpage_link_forgot_password).click();
 		return this;
 	}
 	
 	public SpLoginPage inputUserInfo(String username, String password){
-		input(sp_loginpage_input_username).sendKeys(username);
-		input(sp_loginpage_input_password).sendKeys(password);
+		findElement(sp_loginpage_input_username).sendKeys(username);
+		findElement(sp_loginpage_input_password).sendKeys(password);
 		return this;
 	}
 	
 	public String getResponseMessage(){
-		return span(sp_loginpage_span_response_massage).getText().toString();
+		return findElement(sp_loginpage_span_response_massage).getText().toString();
 	}
 	
 	public SpLoginPage clickSubmitButton(){
-		button(sp_loginpage_button_submit).click();
+		findElement(sp_loginpage_button_submit).click();
 		return this;
 	}
 
+	
+	
+	
+	
+	
+	
 	
 	
 	
