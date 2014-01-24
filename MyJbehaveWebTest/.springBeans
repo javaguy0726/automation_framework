@@ -8,7 +8,8 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>src/main/resources/context_configs.xml</config>
-		<config>src/main/resources/pages/sp/login.xml</config>
+		<config>src/main/resources/pages/sp/login/login.xml</config>
+		<config>src/main/resources/pages/sp/home/ticketing/search.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

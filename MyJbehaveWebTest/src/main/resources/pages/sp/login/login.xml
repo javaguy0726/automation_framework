@@ -20,5 +20,4 @@
 		<property name="sp_loginpage_button_submit" value="#{T(org.openqa.selenium.By).cssSelector('#btnLogin')}"></property>
 	</bean>
 	
-	
 </beans>

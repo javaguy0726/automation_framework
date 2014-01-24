@@ -31,22 +31,28 @@ public class SpLoginPage extends SpAbstractPage{
 	}
 	
 	public SpLoginPage clickForgetPasswordLink(){
-		findElement(sp_loginpage_link_forgot_password).click();
+		link(sp_loginpage_link_forgot_password).click();
 		return this;
 	}
 	
 	public SpLoginPage inputUserInfo(String username, String password){
-		findElement(sp_loginpage_input_username).sendKeys(username);
-		findElement(sp_loginpage_input_password).sendKeys(password);
+		input(sp_loginpage_input_username).sendKeys(username);
+		input(sp_loginpage_input_password).sendKeys(password);
+		return this;
+	}
+	
+	public SpLoginPage clearUserInfo(String username, String password){
+		input(sp_loginpage_input_username).clearField();
+		input(sp_loginpage_input_password).clearField();
 		return this;
 	}
 	
 	public String getResponseMessage(){
-		return findElement(sp_loginpage_span_response_massage).getText().toString();
+		return span(sp_loginpage_span_response_massage).getText().toString();
 	}
 	
 	public SpLoginPage clickSubmitButton(){
-		findElement(sp_loginpage_button_submit).click();
+		input(sp_loginpage_button_submit).click();
 		return this;
 	}
 

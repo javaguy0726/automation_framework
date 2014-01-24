@@ -31,7 +31,8 @@ public class LoginSteps {
 	@Given("user input the correct username \"$username\" and password \"$password\"")
 	@Aliases(values={"user input the incorrect username \"$username\" and password \"$password\""})
 	public void userInputCorrectInfo(@Named("username") String username, @Named("password") String password){
-		this.spLoginPage=spLoginPage.inputUserInfo(username, password);
+		this.spLoginPage = spLoginPage.clearUserInfo(username, password);
+		this.spLoginPage = spLoginPage.inputUserInfo(username, password);
 	}
 	
 	@When("user click \"Forgot Password\" link")
@@ -51,7 +52,7 @@ public class LoginSteps {
 	
 	@Then("user should get to the Home page")
 	public void homepageShouldDisplay(){
-		assertThat(spHomePage.getTitle(), equalTo(""));
+		assertThat(spHomePage.getTitle(), equalTo("SinglePoint"));
 	}
 
 }
