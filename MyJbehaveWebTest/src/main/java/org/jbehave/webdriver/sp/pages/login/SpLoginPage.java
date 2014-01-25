@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.jbehave.webdriver.sp.pages.SpAbstractPage;
+import org.jbehave.webdriver.sp.pages.home.SpHomePage;
 import org.openqa.selenium.By;
 /**
  * 
@@ -12,8 +13,11 @@ import org.openqa.selenium.By;
  */
 public class SpLoginPage extends SpAbstractPage{
 
+	private final WebDriverProvider webDriverProvider;
+	
 	public SpLoginPage(WebDriverProvider webDriverProvider) {
 		super(webDriverProvider);
+		this.webDriverProvider =webDriverProvider;
 	}
 	
 	/*Locators for sp login page*/
@@ -24,7 +28,7 @@ public class SpLoginPage extends SpAbstractPage{
 	public static By sp_loginpage_button_submit;
 	
 	
-	/*Actions for login page*/
+	/*actions for login page*/
 	public SpLoginPage open(){
 		get("http://test.mysplogon.com/SinglePoint/Login.aspx");
 		return this;
@@ -56,6 +60,13 @@ public class SpLoginPage extends SpAbstractPage{
 		return this;
 	}
 
+	public SpLoginPage submitFail(){
+		return new SpLoginPage(webDriverProvider);
+	}
+	
+	public SpHomePage submitSucceed(){
+		return new SpHomePage(webDriverProvider);
+	}
 	
 	
 	

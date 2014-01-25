@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+	
+	<bean id="ticketingSearchSteps" class="org.jbehave.webdriver.steps.TicketingSearchSteps">
+		<constructor-arg ref="spPageFactory" />
+	</bean>
+	
+	<bean id='spTicketingSearchPage' class="org.jbehave.webdriver.sp.pages.ticketing.SpTicketingSearchPage">
+		<constructor-arg ref="webdriverProvider" />
+		<!-- links -->
+		<property name="sp_ticketing_searchpage_link_search" value="#{T(org.openqa.selenium.By).cssSelector('#ctl44_btnSearch')}"></property>
+		<property name="sp_ticketing_searchpage_link_clear" value="#{T(org.openqa.selenium.By).cssSelector('#ctl44_btnClear')}"></property>
+		
+		<!-- spans -->
+		<property name="sp_ticketing_searchpage_span_msg" value="#{T(org.openqa.selenium.By).cssSelector('#ctl44_btnClear')}"></property>
+		
+		<!-- tds -->
+		<property name="sp_ticketing_searchpage_td_incidentno" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[text()=''Incident#:'']')}"></property>
+		<property name="sp_ticketing_searchpage_td_description" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[text()=''Description:'']')}"></property>
+		<property name="sp_ticketing_searchpage_td_priority" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[text()=''Priority:'']')}"></property>
+		<property name="sp_ticketing_searchpage_td_customer_ticketno" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[text()=''Customer Ticket #:'']')}"></property>
+		<property name="sp_ticketing_searchpage_td_status" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[text()=''Status:'']')}"></property>
+		<property name="sp_ticketing_searchpage_td_noofdays" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[text()='' # of Days'']')}"></property>
+		<property name="sp_ticketing_searchpage_td_customer" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[text()=''Customer:'']')}"></property>
+		<property name="sp_ticketing_searchpage_td_shiptoaddress" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[text()=''Ship To Address:'']')}"></property>
+		<property name="sp_ticketing_searchpage_td_incidentdate" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[contains(text(),''Incident Date Between'')]')}"></property>
+		<property name="sp_ticketing_searchpage_td_closedate" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[(text()=''Close Date Between'')]')}"></property>
+		<property name="sp_ticketing_searchpage_td_contact" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[(text()=''Contact:'')]')}"></property>
+		<property name="sp_ticketing_searchpage_td_requester" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[(text()=''Requester:'')]')}"></property>
+		<property name="sp_ticketing_searchpage_td_createby" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[(text()=''Created By:'')]')}"></property>
+		<property name="sp_ticketing_searchpage_td_unitid" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[(text()=''Unit ID (S/N)'')]')}"></property>
+		<property name="sp_ticketing_searchpage_td_feowner" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[(text()=''FE/Owner:'')]')}"></property>
+		<property name="sp_ticketing_searchpage_td_contract" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[contains(text(),''Contract:'')]')}"></property>
+		<property name="sp_ticketing_searchpage_td_sro" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[contains(text(),''SRO:'')]')}"></property>
+		<property name="sp_ticketing_searchpage_td_srostatus" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[contains(text(),''SRO Status:'')]')}"></property>
+		
+		<!-- labels -->
+		<property name="sp_ticketing_searchpage_label_status_open" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''Open'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_status_assigned" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''Assigned'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_status_inprogress" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''In Progress'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_status_schedule" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''Scheduled'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_status_escalated" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''Escalated'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_status_csg" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''CSG'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_status_hold" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''Hold'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_status_resolved" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''Resolved'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_status_closed" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''Closed'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_noofdays_na" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''n/a'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_noofdays_today" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''Today'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_noofdays_1" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''1'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_noofdays_30" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''30'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_noofdays_60" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''60'']')}"></property>
+		<property name="sp_ticketing_searchpage_label_noofdays_90" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''90'']')}"></property>
+		
+		<!-- selects -->
+		<property name="sp_ticketing_searchpage_select_priority" value="#{T(org.openqa.selenium.By).cssSelector('#ctl44_cboPriority')}"></property>
+		<property name="sp_ticketing_searchpage_select_srostatus" value="#{T(org.openqa.selenium.By).cssSelector('#ctl44_cboSROStat')}"></property>
+		
+	</bean>
+</beans>

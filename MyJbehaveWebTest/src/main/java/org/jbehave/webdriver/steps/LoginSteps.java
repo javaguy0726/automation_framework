@@ -47,12 +47,13 @@ public class LoginSteps {
 	
 	@Then("message \"$message\" should be displayed")
 	public void messageShouldDisplay(@Named("message") String message){
-		assertThat(spLoginPage.getResponseMessage(), equalTo(message));
+		assertThat(this.spLoginPage.getResponseMessage(), equalTo(message));
 	}
 	
 	@Then("user should get to the Home page")
 	public void homepageShouldDisplay(){
-		assertThat(spHomePage.getTitle(), equalTo("SinglePoint"));
+		this.spHomePage=this.spLoginPage.submitSucceed();
+		assertThat(this.spHomePage.getTitle(), equalTo("SinglePoint"));
 	}
 
 }

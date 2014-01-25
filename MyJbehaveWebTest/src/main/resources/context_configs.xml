@@ -8,6 +8,7 @@
 	http://www.springframework.org/schema/util/spring-util-2.0.xsd">
 	
 	<import resource="configuration/env_config.xml" />
-	<import resource="pages/sp/login.xml" />
+	<import resource="pages/sp/login/login.xml" />
+	<import resource="pages/sp/ticketing/search.xml" />
 
 </beans>
