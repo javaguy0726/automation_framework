@@ -7,8 +7,11 @@ import org.openqa.selenium.By;
 
 public class SpTicketingSearchPage extends SpAbstractPage {
 
+	private final WebDriverProvider driverProvider;
+	
 	public SpTicketingSearchPage(WebDriverProvider driverProvider) {
 		super(driverProvider);
+		this.driverProvider=driverProvider;
 	}
 
 	/*Locators for sp ticketing - search page*/
@@ -35,8 +38,6 @@ public class SpTicketingSearchPage extends SpAbstractPage {
 	public static By sp_ticketing_searchpage_td_unitid;
 	public static By sp_ticketing_searchpage_td_feowner;
 	public static By sp_ticketing_searchpage_td_createby;
-
-
 	public static By sp_ticketing_searchpage_td_contract;
 	public static By sp_ticketing_searchpage_td_sro;
 	public static By sp_ticketing_searchpage_td_srostatus;
@@ -63,9 +64,10 @@ public class SpTicketingSearchPage extends SpAbstractPage {
 	public static By sp_ticketing_searchpage_select_srostatus;
 	
 	
+	
+	
 	/*Actions for ticketing - search page*/
 	public SpTicketingSearchPage open(){
-		get("http://test.mysplogon.com/SinglePoint/Login.aspx");
 		
 		return this;
 	}
@@ -77,7 +79,6 @@ public class SpTicketingSearchPage extends SpAbstractPage {
 	
 	
 	/*setters*/
-	
 	public static void setSp_ticketing_searchpage_link_search(
 			By sp_ticketing_searchpage_link_search) {
 		SpTicketingSearchPage.sp_ticketing_searchpage_link_search = sp_ticketing_searchpage_link_search;

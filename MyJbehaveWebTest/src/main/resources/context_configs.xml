@@ -10,5 +10,6 @@
 	<import resource="configuration/env_config.xml" />
 	<import resource="pages/sp/login/login.xml" />
 	<import resource="pages/sp/ticketing/search.xml" />
+	<import resource="pages/sp/home/home.xml" />
 
 </beans>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+	
+	<bean id="homeSteps" class="org.jbehave.webdriver.steps.HomeSteps">
+		<constructor-arg ref="spPageFactory" />
+	</bean>
+	
+	<bean id='spHomePage' class="org.jbehave.webdriver.sp.pages.home.SpHomePage">
+		<constructor-arg ref="webdriverProvider" />
+		<property name="sp_homepage_td_ticketing" value="#{T(org.openqa.selenium.By).cssSelector('#menu_MainMenu>table>tbody>tr>td:nth-of-type(1)')}"></property>
+		<property name="sp_homepage_td_ticketing_search" value="#{T(org.openqa.selenium.By).cssSelector('#menu_SubMenu>table>tbody>tr>td:nth-of-type(1)')}"></property>
+	</bean>
+	
+</beans>

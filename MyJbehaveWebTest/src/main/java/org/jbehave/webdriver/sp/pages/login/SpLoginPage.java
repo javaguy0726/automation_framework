@@ -13,11 +13,11 @@ import org.openqa.selenium.By;
  */
 public class SpLoginPage extends SpAbstractPage{
 
-	private final WebDriverProvider webDriverProvider;
+	private final WebDriverProvider driverProvider;
 	
-	public SpLoginPage(WebDriverProvider webDriverProvider) {
-		super(webDriverProvider);
-		this.webDriverProvider =webDriverProvider;
+	public SpLoginPage(WebDriverProvider driverProvider) {
+		super(driverProvider);
+		this.driverProvider =driverProvider;
 	}
 	
 	/*Locators for sp login page*/
@@ -61,11 +61,11 @@ public class SpLoginPage extends SpAbstractPage{
 	}
 
 	public SpLoginPage submitFail(){
-		return new SpLoginPage(webDriverProvider);
+		return new SpLoginPage(driverProvider);
 	}
 	
 	public SpHomePage submitSucceed(){
-		return new SpHomePage(webDriverProvider);
+		return new SpHomePage(driverProvider);
 	}
 	
 	
