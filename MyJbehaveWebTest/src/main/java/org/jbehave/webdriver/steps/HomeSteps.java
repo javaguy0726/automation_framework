@@ -15,10 +15,4 @@ public class HomeSteps {
 		this.spHomePage = factory.newSpHome();
 	}
 	
-	@Given("User go to the Search screen under Ticketing menu")
-	public void userGetToHomePage(){
-		
-	}
-	
-	
 }

@@ -3,6 +3,7 @@ package org.jbehave.webdriver.sp.pages;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.jbehave.webdriver.sp.pages.home.SpHomePage;
 import org.jbehave.webdriver.sp.pages.login.SpLoginPage;
+import org.jbehave.webdriver.sp.pages.ticketing.SpTicketingSearchPage;
 import org.seleniumhq.selenium.fluent.FluentWebDriver;
 
 public class SpPageFactory {
@@ -19,5 +20,9 @@ public class SpPageFactory {
 	
 	public SpHomePage newSpHome(){
 		return new SpHomePage(webDriverProvider);
+	}
+	
+	public SpTicketingSearchPage newSpTicketingSearch(){
+		return new SpTicketingSearchPage(webDriverProvider);
 	}
 }

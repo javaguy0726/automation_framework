@@ -2,8 +2,9 @@ package org.jbehave.webdriver.sp.pages.home;
 
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.jbehave.webdriver.sp.pages.SpAbstractPage;
-import org.jbehave.webdriver.sp.pages.login.SpLoginPage;
+import org.jbehave.webdriver.sp.pages.ticketing.SpTicketingSearchPage;
 import org.openqa.selenium.By;
+import org.seleniumhq.selenium.fluent.Period.Seconds;
 
 public class SpHomePage extends SpAbstractPage{
 
@@ -25,10 +26,11 @@ public class SpHomePage extends SpAbstractPage{
 	
 	
 	/*actions for home page*/
-	public SpHomePage open(){
-		
-		return this;
+	public SpTicketingSearchPage openTicketingSearch(){
+		td(sp_homepage_td_ticketing).click().within(Seconds.secs(10)).td(sp_homepage_td_ticketing_search);
+		return new SpTicketingSearchPage(driverProvider);
 	}
+	
 	
 	
 	

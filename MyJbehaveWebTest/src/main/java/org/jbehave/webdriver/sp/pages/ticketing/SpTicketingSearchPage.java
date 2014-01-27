@@ -1,8 +1,14 @@
 package org.jbehave.webdriver.sp.pages.ticketing;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.jbehave.webdriver.sp.pages.SpAbstractPage;
 import org.jbehave.webdriver.sp.pages.login.SpLoginPage;
+import org.junit.Test;
 import org.openqa.selenium.By;
 
 public class SpTicketingSearchPage extends SpAbstractPage {
@@ -67,11 +73,88 @@ public class SpTicketingSearchPage extends SpAbstractPage {
 	
 	
 	/*Actions for ticketing - search page*/
-	public SpTicketingSearchPage open(){
-		
-		return this;
+	public List<By> getCurrentPageTds(){
+		return getCurrentPageLocatorsByTag("td");
 	}
+	
+//	public List<String> getCurrentPageText(){
+//		
+//	}
 
+//	public boolean comparePageLabels(List<>){
+//		
+//	}
+	
+	
+	
+	/*other private methods*/
+	// Get the expected By object for each type
+	private List<By> getCurrentPageLocatorsByTag(String tag) {
+		ArrayList<By> list = new ArrayList<By>();
+		for (Field field : getExpectedFields(tag)) {
+			try {
+				list.add((By)field.get(this));
+			} catch (IllegalArgumentException | IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	
+	// Get the field names list
+	private List<Field> getExpectedFields(String tag){
+		Class<?> cls = gotClass(this.getClass().getName());
+		tag = "_"+tag+"_";
+		Field[] fields = cls.getDeclaredFields();
+		ArrayList<Field> fieldList = new ArrayList<Field>();
+		for (Field field : fields) {
+			if(field.getName().contains(tag)){
+				fieldList.add(field);
+			}
+		}
+		return fieldList;
+	}
+	
+	// Get just the name of the class except for full package path
+	private String typeName(Class<?> cls) {
+		String brackets = "";
+		while (cls.isArray()) {         // if it is multidemensional array, print each bracket
+			brackets += "[]";
+			cls = cls.getComponentType();
+		}
+		String full_name = cls.getName();     //this get the package name + class name
+		int pos = full_name.lastIndexOf('.');
+		if (pos != -1)
+			full_name = full_name.substring(pos + 1);
+		return full_name + brackets;
+	}
+	
+	//Get the target class
+	private Class<?> gotClass(String className) {
+		Class<?> cls = null;
+		try {
+			cls = Class.forName(className);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cls;
+	}
+	
+	private static String modifier(int m) {
+		if (m == 0)
+			return "";
+		else
+			return Modifier.toString(m) + " ";
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

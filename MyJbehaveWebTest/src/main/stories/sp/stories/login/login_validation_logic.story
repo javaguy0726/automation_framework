@@ -37,6 +37,10 @@ When user click submit button
 Then message "Invalid username or password." should be displayed
 
 Scenario:  User login successfully
+
+Meta:
+@Pre  logsuccess 
+
 Given user get to the Login page
 And user input the incorrect username "quwei@beyondsoft.com" and password "T3stingSMS321"
 When user click submit button
