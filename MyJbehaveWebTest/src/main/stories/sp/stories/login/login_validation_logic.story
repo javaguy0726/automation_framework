@@ -5,7 +5,7 @@ In order to know how the SP(http://test.mysplogon.com/SinglePoint/) validate use
 As a test user
 I want to login with different conditions 
 Meta:
-login_val_logic
+@login_val_logic
 					 
 Scenario:  User click "Forgot Password" link directly to see what message shows
 Given user get to the Login page
@@ -37,9 +37,8 @@ When user click submit button
 Then message "Invalid username or password." should be displayed
 
 Scenario:  User login successfully
-
-Meta:
-@Pre  logsuccess 
+Meta: 
+@pre logsuccess 
 
 Given user get to the Login page
 And user input the incorrect username "quwei@beyondsoft.com" and password "T3stingSMS321"

@@ -24,8 +24,8 @@ public class TicketingSearchSteps {
 		this.spTicketingSearchPage = factory.newSpTicketingSearch();
 	}
 	
-	@Given("User go to the Search screen under Ticketing menu")
-	public void userGetToLoginPage(String username, String password){
+	@Given("User goes to the Search screen under Ticketing menu")
+	public void userGetToTicketingSearchPage(){
 		this.spTicketingSearchPage = spHomePage.openTicketingSearch();
 	}
 	

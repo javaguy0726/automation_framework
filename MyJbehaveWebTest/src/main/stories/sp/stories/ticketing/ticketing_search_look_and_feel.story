@@ -5,10 +5,10 @@ In order to make sure the Ticketing --> Search page has correct UI
 As a test user
 I want to test the look and feel of this screen
 
-GivenStories: ../login/login_validation_logic.story#{Pre:logsuccess}
+GivenStories: sp/stories/login/login_validation_logic.story#{pre:logsuccess}
 					 
-Scenario: All the labels on this screen should be correct
-Given User go to the Search screen under Ticketing menu
+Scenario: All the labels on ticketing search screen should be correct
+Given User goes to the Search screen under Ticketing menu
 Then The texts should be as follows:
 | texts |
 | Incident#: |

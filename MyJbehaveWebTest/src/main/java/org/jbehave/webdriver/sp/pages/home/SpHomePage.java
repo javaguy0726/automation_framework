@@ -22,26 +22,16 @@ public class SpHomePage extends SpAbstractPage{
 
 	
 	
-	
-	
-	
 	/*actions for home page*/
 	public SpTicketingSearchPage openTicketingSearch(){
 		td(sp_homepage_td_ticketing).click().within(Seconds.secs(10)).td(sp_homepage_td_ticketing_search);
 		return new SpTicketingSearchPage(driverProvider);
 	}
 
-
-
-
-
-
+	/*setters*/
 	public static void setSp_homepage_td_ticketing(By sp_homepage_td_ticketing) {
 		SpHomePage.sp_homepage_td_ticketing = sp_homepage_td_ticketing;
 	}
-
-
-
 
 
 
@@ -62,6 +52,6 @@ public class SpHomePage extends SpAbstractPage{
 	
 	
 	
-	/*setters*/
+	
 	
 }

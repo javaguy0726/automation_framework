@@ -79,7 +79,7 @@ import static org.jbehave.webdriver.stories.BaseStories.MyParameterControls;
 							skip = false, 
 							generateViewAfterStories = true, 
 							ignoreFailureInStories = true, 
-							ignoreFailureInView = true, 
+							ignoreFailureInView = false, 
 							storyTimeoutInSecs = 300, 
 							threads = 1, 
 							metaFilters = "-skip")
