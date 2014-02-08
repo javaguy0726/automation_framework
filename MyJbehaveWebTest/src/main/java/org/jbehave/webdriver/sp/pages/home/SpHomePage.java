@@ -30,6 +30,25 @@ public class SpHomePage extends SpAbstractPage{
 		td(sp_homepage_td_ticketing).click().within(Seconds.secs(10)).td(sp_homepage_td_ticketing_search);
 		return new SpTicketingSearchPage(driverProvider);
 	}
+
+
+
+
+
+
+	public static void setSp_homepage_td_ticketing(By sp_homepage_td_ticketing) {
+		SpHomePage.sp_homepage_td_ticketing = sp_homepage_td_ticketing;
+	}
+
+
+
+
+
+
+	public static void setSp_homepage_td_ticketing_search(
+			By sp_homepage_td_ticketing_search) {
+		SpHomePage.sp_homepage_td_ticketing_search = sp_homepage_td_ticketing_search;
+	}
 	
 	
 	
@@ -44,13 +63,5 @@ public class SpHomePage extends SpAbstractPage{
 	
 	
 	/*setters*/
-	public static void setSp_homepage_td_ticketing(By sp_homepage_td_ticketing) {
-		SpHomePage.sp_homepage_td_ticketing = sp_homepage_td_ticketing;
-	}
-	public static void setSp_homepage_td_ticketing_search(
-			By sp_homepage_td_ticketing_search) {
-		SpHomePage.sp_homepage_td_ticketing_search = sp_homepage_td_ticketing_search;
-	}
-	
 	
 }
