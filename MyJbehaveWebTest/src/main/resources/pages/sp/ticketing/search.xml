@@ -40,7 +40,7 @@
 		<property name="sp_ticketing_searchpage_td_sro" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[contains(text(),''SRO:'')]')}"></property>
 		<property name="sp_ticketing_searchpage_td_srostatus" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td[contains(text(),''SRO Status:'')]')}"></property>
 		
-		<!-- labels -->
+		<!-- labels 
 		<property name="sp_ticketing_searchpage_label_status_open" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''Open'']')}"></property>
 		<property name="sp_ticketing_searchpage_label_status_assigned" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''Assigned'']')}"></property>
 		<property name="sp_ticketing_searchpage_label_status_inprogress" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''In Progress'']')}"></property>
@@ -56,7 +56,7 @@
 		<property name="sp_ticketing_searchpage_label_noofdays_30" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''30'']')}"></property>
 		<property name="sp_ticketing_searchpage_label_noofdays_60" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''60'']')}"></property>
 		<property name="sp_ticketing_searchpage_label_noofdays_90" value="#{T(org.openqa.selenium.By).xpath('.//*[@id=''ctl44_pnlDefault'']/table[2]/tbody/tr/td/label[text()=''90'']')}"></property>
-		
+		-->
 		<!-- selects -->
 		<property name="sp_ticketing_searchpage_select_priority" value="#{T(org.openqa.selenium.By).cssSelector('#ctl44_cboPriority')}"></property>
 		<property name="sp_ticketing_searchpage_select_srostatus" value="#{T(org.openqa.selenium.By).cssSelector('#ctl44_cboSROStat')}"></property>
